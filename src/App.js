@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import api from "./utils/api"
+import {CountriesContext} from "./context/CountriesContext"
 import Summary from "./components/Summary/Summary"
 import List from "./components/List/List"
 
 const App = () => {
   const [summary, setSummData] = useState({});
-  // const [countries, setCountries] = useContext(CountriesContext);
+  const [countries, setCountries] = useContext(CountriesContext);
   
   useEffect(() => {
     (async () => {
@@ -15,7 +16,7 @@ const App = () => {
         deaths: res.data.Global.TotalDeaths,
         recovered: res.data.Global.TotalRecovered,
       });
-      // setCountries(res.data.Countries);
+      setCountries(res.data.Countries);
     })();
   }, []);
   return (
