@@ -1,18 +1,29 @@
-import React from 'react'
-import {ListElContainer} from "./ListElement.style"
+import React, { useState, useEffect, useContext } from "react";
+import { AbbrevContext } from "../../../context/AbbrevContext";
+import { ListElContainer } from "./ListElement.style";
 
-const ListElement = ({cData}) => {
-    return (
-        <ListElContainer>
-            <div className="desc">
-                <h3>{cData.Country}</h3>
-                <p>{cData.TotalConfirmed} / {cData.TotalDeaths} / {cData.TotalRecovered}</p>
-            </div>
-            <div className="icon">
-                <i class="fas fa-chart-area"></i>
-            </div>
-        </ListElContainer>
-        )
-}
+const ListElement = ({ cData }) => {
+  const [abbrev, setAbbrev] = useContext(AbbrevContext);
+  const [selected, setSelected] = useState(false);
 
-export default ListElement
+  useEffect(() => {
+    if (abbrev === cData.CountryCode) setSelected(true);
+    else setSelected(false);
+  }, [abbrev]);
+
+  return (
+    <ListElContainer id={selected ? "selected" : ""} selected={selected}>
+      <div className='desc'>
+        <h3>{cData.Country}</h3>
+        <p>
+          {cData.TotalConfirmed} / {cData.TotalDeaths} / {cData.TotalRecovered}
+        </p>
+      </div>
+      <div className='icon'>
+        <i class='fas fa-chart-area'></i>
+      </div>
+    </ListElContainer>
+  );
+};
+
+export default ListElement;

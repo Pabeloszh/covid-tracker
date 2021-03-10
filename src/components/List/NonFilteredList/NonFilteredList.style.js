@@ -1,6 +1,7 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const NonFilteredLi = styled.div`
-    height:100%;
-    overflow-y:scroll;
+  margin-top: 15px;
+  height: calc(100% - 45px);
+  overflow-y: scroll;
 `;
