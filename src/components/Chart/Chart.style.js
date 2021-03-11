@@ -3,7 +3,7 @@ import {device} from "../../utils/breakpoints";
 
 export const ChartContainer = styled.div`
     width:100%;
-    height:100%;
+    height:500px;
     padding: 15px 60px;
     background-color:#000;
     color:#fff;
