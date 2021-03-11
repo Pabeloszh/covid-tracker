@@ -25,7 +25,7 @@ const Map = () => {
   };
   return (
     <MapContainer>
-      <ComposableMap projectionConfig={{ scale: 137 }}>
+      <ComposableMap projectionConfig={{ scale: 140 }}>
         <Graticule />
         <Sphere />
         <Geographies geography={geoUrl}>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ListContainer = styled.div`
     width:300px;
-    height:800px;
+    height:calc(100vh - 100px);
     background-color:#000;
     padding: 15px 25px;
     .search{

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Line } from "react-chartjs-2";
 import api from "../../utils/api";
 import {AbbrevContext} from "../../context/AbbrevContext"
+import {ChartContainer} from "./Chart.style"
 
 const Chart = () => {
     const [monthly, setMonthly] = useState([]);
@@ -79,13 +80,15 @@ const Chart = () => {
         ],
         });
     }, [monthly]);
+    console.log(monthly)
     return (
-        <div>
-            <h2>Monthly Cases Chart</h2>
+        <ChartContainer>
+            <h2>Monthly cases in {monthly[0].Country}</h2>
             <Line
             data={dataChartMonthly}
             options={{
                 maintainAspectRatio: false,
+                responsive:true,
                 scales: {
                 xAxes: [
                     {
@@ -106,7 +109,7 @@ const Chart = () => {
                 },
             }}
             />
-        </div>
+        </ChartContainer>
     )
 }
 export default Chart

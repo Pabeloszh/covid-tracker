@@ -5,6 +5,7 @@ import Summary from "./components/Summary/Summary";
 import List from "./components/List/List";
 import Map from "./components/Map/Map";
 import Chart from "./components/Chart/Chart"
+import {AppContainer} from "./App.style"
 
 const App = () => {
   const [summary, setSummData] = useState({});
@@ -22,12 +23,14 @@ const App = () => {
     })();
   }, []);
   return (
-    <div>
+    <AppContainer>
       <Summary summary={summary} />
-      <List />
-      <Map />
+      <div className="desktop">
+        <List />
+        <Map />
+      </div>
       <Chart />
-    </div>
+    </AppContainer>
   );
 };
 
