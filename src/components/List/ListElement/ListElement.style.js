@@ -6,7 +6,7 @@ export const ListElContainer = styled.div`
   align-items: center;
   margin: 12.5px 0;
   padding: 5px 0px 5px 10px;
-  background-color: ${(props) => (props.selected ? "#000" : "#fff")};
+  background-color: ${(props) => (props.selected ? "red" : "#fff")};
   .desc {
     h3 {
       width: 180px;

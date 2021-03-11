@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { ListContainer } from "./List.style";
-import NonFilteredList from "./NonFilteredList/NonFilteredList";
 import FilteredList from "./FilteredList/FilteredList";
+import { AbbrevContext } from "../../context/AbbrevContext";
+import {SearchContext } from "../../context/SearchContext"
 
 const List = () => {
-  const [searchInput, searchInputValue] = useState("");
+  const [abbrev, setAbbrev] = useContext(AbbrevContext);
+  const [searchInput, searchInputValue] = useContext(SearchContext);
+
+
+  useEffect(()=>{
+    if(searchInput !== ""){
+      setAbbrev("");
+    }
+  },[searchInput])
 
   const adjustCase = (str) => {
     return str.replace(/\w\S*/g, function (txt) {
@@ -22,11 +31,7 @@ const List = () => {
           placeholder='Search...'
         />
       </div>
-      {searchInput ? (
-        <FilteredList searchInput={searchInput} />
-      ) : (
-        <NonFilteredList />
-      )}
+        <FilteredList/>
     </ListContainer>
   );
 };

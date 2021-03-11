@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -8,6 +8,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { AbbrevContext } from "../../context/AbbrevContext";
+import {SearchContext } from "../../context/SearchContext"
 import { MapContainer } from "./Map.style";
 
 const geoUrl =
@@ -15,8 +16,11 @@ const geoUrl =
 
 const Map = () => {
   const [abbrev, setAbbrev] = useContext(AbbrevContext);
+  const [searchInput, searchInputValue] = useContext(SearchContext);
 
   const toggleMap = (e) => {
+    searchInputValue("");
+    document.querySelector('.search input').value = "";
     setAbbrev(e.target.getAttribute("map-abbrev"));
   };
   return (
@@ -29,16 +33,14 @@ const Map = () => {
             geographies.map((geo) => {
               return (
                 <Geography
-                  //   countryabbrev={CountryAbbrev}
-                  //   key={geo.rsmKey}
                   map-abbrev={geo.properties.ISO_A2}
                   geography={geo}
                   onClick={toggleMap}
-                  //   fill={
-                  //     geo.properties.ISO_A2 === CountryAbbrev
-                  //       ? theme.colors.additional
-                  //       : theme.colors.main
-                  //   }
+                    fill={
+                      geo.properties.ISO_A2 === abbrev
+                        ? "red"
+                        : "#000"
+                    }
                 />
               );
             })

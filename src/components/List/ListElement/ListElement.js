@@ -11,8 +11,12 @@ const ListElement = ({ cData }) => {
     else setSelected(false);
   }, [abbrev]);
 
+  const toggleEl = () => {
+    setAbbrev(cData.CountryCode)
+  };
+
   return (
-    <ListElContainer id={selected ? "selected" : ""} selected={selected}>
+    <ListElContainer id={selected ? "selected" : ""} selected={selected} onClick={toggleEl}>
       <div className='desc'>
         <h3>{cData.Country}</h3>
         <p>

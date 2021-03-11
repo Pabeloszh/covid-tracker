@@ -4,6 +4,7 @@ import { CountriesContext } from "./context/CountriesContext";
 import Summary from "./components/Summary/Summary";
 import List from "./components/List/List";
 import Map from "./components/Map/Map";
+import Chart from "./components/Chart/Chart"
 
 const App = () => {
   const [summary, setSummData] = useState({});
@@ -25,6 +26,7 @@ const App = () => {
       <Summary summary={summary} />
       <List />
       <Map />
+      <Chart />
     </div>
   );
 };
