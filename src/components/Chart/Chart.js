@@ -83,32 +83,34 @@ const Chart = () => {
     console.log(monthly)
     return (
         <ChartContainer>
-            <h2>Monthly cases in {monthly[0].Country}</h2>
-            <Line
-            data={dataChartMonthly}
-            options={{
-                maintainAspectRatio: false,
-                responsive:true,
-                scales: {
-                xAxes: [
-                    {
-                    gridLines: {
-                        display: true,
-                        color: "#262626",
+            <h2>Monthly cases in </h2>
+            <div class="chart-container" style={{position: "relative", height:"100%", width:"100%"}}>
+                <Line
+                data={dataChartMonthly}
+                options={{
+                    maintainAspectRatio: false,
+                    scales: {
+                    xAxes: [
+                        {
+                        gridLines: {
+                            display: true,
+                            color: "#262626",
+                        },
+                        },
+                    ],
+                    yAxes: [
+                        {
+                        gridLines: {
+                            display: true,
+                            color: "#262626",
+                        },
+                        },
+                    ],
                     },
-                    },
-                ],
-                yAxes: [
-                    {
-                    gridLines: {
-                        display: true,
-                        color: "#262626",
-                    },
-                    },
-                ],
-                },
-            }}
-            />
+                }}
+                />
+            </div>
+            
         </ChartContainer>
     )
 }
