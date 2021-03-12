@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -17,15 +17,35 @@ const geoUrl =
 const Map = () => {
   const [abbrev, setAbbrev] = useContext(AbbrevContext);
   const [searchInput, searchInputValue] = useContext(SearchContext);
+  const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
   const toggleMap = (e) => {
     searchInputValue("");
     document.querySelector('.search input').value = "";
     setAbbrev(e.target.getAttribute("map-abbrev"));
   };
+
+  const handleZoomIn = () => {
+    if (position.zoom >= 4) return;
+    setPosition((pos) => ({ ...pos, zoom: pos.zoom * 2 }));
+  };
+
+  const handleZoomOut = () => {
+    if (position.zoom <= 1) return;
+    setPosition((pos) => ({ ...pos, zoom: pos.zoom / 2 }));
+  };
+
+  const handleMoveEnd = (position) => {
+    setPosition(position);
+  };
   return (
     <MapContainer>
       <ComposableMap projectionConfig={{ scale: 140 }}>
+      <ZoomableGroup
+          zoom={position.zoom}
+          center={position.coordinates}
+          onMoveEnd={handleMoveEnd}
+        >
         <Graticule />
         <Sphere />
         <Geographies geography={geoUrl}>
@@ -46,7 +66,12 @@ const Map = () => {
             })
           }
         </Geographies>
+        </ZoomableGroup>
       </ComposableMap>
+      <div className="buttons">
+        <button onClick={handleZoomOut}><i class="fas fa-search-minus"></i></button>
+        <button onClick={handleZoomIn}><i class="fas fa-search-plus"></i></button>
+      </div>
     </MapContainer>
   );
 };

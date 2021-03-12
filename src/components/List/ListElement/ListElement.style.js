@@ -13,10 +13,21 @@ export const ListElContainer = styled.div`
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size:16px;
+      font-family: 'Open Sans', sans-serif;
+
     }
     h3,
     p {
       color: ${(props) => (props.selected ? "#fff" : "#000")};
+    }
+    p{
+      width:190px;
+      font-family: 'Roboto', sans-serif;
+      font-size:14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .icon {

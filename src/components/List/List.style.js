@@ -19,4 +19,12 @@ export const ListContainer = styled.div`
             outline:none;
         }
     }
+    @media screen and (max-width: 768px){
+        width:100%;
+        .search{
+            input{
+                width:100%;
+            }
+        }
+    }
 `;
