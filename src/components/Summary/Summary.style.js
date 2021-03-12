@@ -10,9 +10,25 @@ export const SummaryContainer = styled.div`
         top:50%;
         left:50%;
         transform:translate(-50%,-50%);
+        width:100%;
         h1{
             text-align:center;
             color:#fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1:last-child{
+            display:none;
+        }
+    }
+    @media screen and (max-width: 768px){
+        div{
+            h1:first-child{
+                display:none;
+            }
+            h1:last-child{
+                display:block;
+                font-size:28px;
+            }
         }
     }
 `;

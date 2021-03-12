@@ -80,10 +80,9 @@ const Chart = () => {
         ],
         });
     }, [monthly]);
-    console.log(monthly)
     return (
         <ChartContainer>
-            <h2>Monthly cases in </h2>
+            <h2>Monthly Cases</h2>
             <div class="chart-container" style={{position: "relative", height:"100%", width:"100%"}}>
                 <Line
                 data={dataChartMonthly}

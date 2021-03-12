@@ -9,7 +9,31 @@ const ListElement = ({ cData }) => {
   useEffect(() => {
     if (abbrev === cData.CountryCode) setSelected(true);
     else setSelected(false);
+
+    // if (
+    //   abbrev !== "" &&
+    //   abbrev !== "GL" &&
+    //   abbrev !== "AQ" &&
+    //   abbrev !== "-99"
+    // ) {
+    //   console.log(document.getElementById("selected"), abbrev)
+    //   // document.getElementById("selected").parentElement.scrollTop =
+    //   // document.getElementById("selected").offsetTop - 195;
+    // }
   }, [abbrev]);
+
+  useEffect(()=>{
+    if ( selected &&
+      abbrev !== "" &&
+      abbrev !== "GL" &&
+      abbrev !== "AQ" &&
+      abbrev !== "-99"
+    ) {
+      document.getElementById("selected").parentElement.scrollTop =
+      document.getElementById("selected").offsetTop - 155;
+    }
+
+  }, [selected])
 
   const toggleEl = () => {
     setAbbrev(cData.CountryCode)
