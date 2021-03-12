@@ -13,8 +13,7 @@ export const SummaryContainer = styled.div`
         transform:translate(-50%,-50%);
         width:100%;
         h1{
-            display:flex;
-            justify-content:center;
+            text-align:center;
             color:#F1F1F3;
             font-family: 'Open Sans', sans-serif;
         }

@@ -10,11 +10,12 @@ export const ListContainer = styled.div`
         width:100%;
         positon relative;
         i{
-            margin:6px 0 0 5px;
+            margin:4px 0 0 5px;
             position:absolute;
             color:#000;
         }
         input{
+            border-radius: 5px;
             background-color:#f5f3f4;
             color:#a4161a;
             border:none;
@@ -25,6 +26,7 @@ export const ListContainer = styled.div`
     }
     @media screen and (max-width: 768px){
         width:100%;
+        border-right:none;
         .search{
             input{
                 width:100%;
