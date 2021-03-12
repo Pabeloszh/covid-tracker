@@ -9,38 +9,31 @@ const ListElement = ({ cData }) => {
   useEffect(() => {
     if (abbrev === cData.CountryCode) setSelected(true);
     else setSelected(false);
-
-    // if (
-    //   abbrev !== "" &&
-    //   abbrev !== "GL" &&
-    //   abbrev !== "AQ" &&
-    //   abbrev !== "-99"
-    // ) {
-    //   console.log(document.getElementById("selected"), abbrev)
-    //   // document.getElementById("selected").parentElement.scrollTop =
-    //   // document.getElementById("selected").offsetTop - 195;
-    // }
   }, [abbrev]);
 
-  useEffect(()=>{
-    if ( selected &&
+  useEffect(() => {
+    if (
+      selected &&
       abbrev !== "" &&
       abbrev !== "GL" &&
       abbrev !== "AQ" &&
       abbrev !== "-99"
     ) {
       document.getElementById("selected").parentElement.scrollTop =
-      document.getElementById("selected").offsetTop - 155;
+        document.getElementById("selected").offsetTop - 155;
     }
-
-  }, [selected])
+  }, [selected]);
 
   const toggleEl = () => {
-    setAbbrev(cData.CountryCode)
+    setAbbrev(cData.CountryCode);
   };
 
   return (
-    <ListElContainer id={selected ? "selected" : ""} selected={selected} onClick={toggleEl}>
+    <ListElContainer
+      id={selected ? "selected" : ""}
+      selected={selected}
+      onClick={toggleEl}
+    >
       <div className='desc'>
         <h3>{cData.Country}</h3>
         <p>

@@ -8,7 +8,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { AbbrevContext } from "../../context/AbbrevContext";
-import {SearchContext } from "../../context/SearchContext"
+import { SearchContext } from "../../context/SearchContext";
 import { MapContainer } from "./Map.style";
 
 const geoUrl =
@@ -21,7 +21,7 @@ const Map = () => {
 
   const toggleMap = (e) => {
     searchInputValue("");
-    document.querySelector('.search input').value = "";
+    document.querySelector(".search input").value = "";
     setAbbrev(e.target.getAttribute("map-abbrev"));
   };
 
@@ -40,38 +40,39 @@ const Map = () => {
   };
   return (
     <MapContainer>
-      <ComposableMap stroke="#122948"
-         projectionConfig={{ scale: 140 }}>
-      <ZoomableGroup
+      <ComposableMap stroke='#0E1F33' projectionConfig={{ scale: 140 }}>
+        <ZoomableGroup
           zoom={position.zoom}
           center={position.coordinates}
           onMoveEnd={handleMoveEnd}
         >
-        <Graticule stroke="#F1F1F3"/>
-        <Sphere stroke="#F1F1F3"/>
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies.map((geo) => {
-              return (
-                <Geography
-                  map-abbrev={geo.properties.ISO_A2}
-                  geography={geo}
-                  onClick={toggleMap}
+          <Graticule stroke='#F1F1F3' />
+          <Sphere stroke='#F1F1F3' />
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                return (
+                  <Geography
+                    map-abbrev={geo.properties.ISO_A2}
+                    geography={geo}
+                    onClick={toggleMap}
                     fill={
-                      geo.properties.ISO_A2 === abbrev
-                        ? "#CEA434"
-                        : "#F1F1F3"
+                      geo.properties.ISO_A2 === abbrev ? "#CEA434" : "#F1F1F3"
                     }
-                />
-              );
-            })
-          }
-        </Geographies>
+                  />
+                );
+              })
+            }
+          </Geographies>
         </ZoomableGroup>
       </ComposableMap>
-      <div className="buttons">
-        <button onClick={handleZoomOut}><i class="fas fa-search-minus"></i></button>
-        <button onClick={handleZoomIn}><i class="fas fa-search-plus"></i></button>
+      <div className='buttons'>
+        <button onClick={handleZoomOut}>
+          <i class='fas fa-search-minus'></i>
+        </button>
+        <button onClick={handleZoomIn}>
+          <i class='fas fa-search-plus'></i>
+        </button>
       </div>
     </MapContainer>
   );
