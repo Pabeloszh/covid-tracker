@@ -4,7 +4,8 @@ export const SummaryContainer = styled.div`
     height:100px;
     width:100%;
     position:relative;
-    background-color:#000;
+    background-color:#0E1F33;
+    border-bottom: 3px solid #CEA434;
     div{
         position absolute;
         top:50%;
@@ -12,8 +13,9 @@ export const SummaryContainer = styled.div`
         transform:translate(-50%,-50%);
         width:100%;
         h1{
-            text-align:center;
-            color:#fff;
+            display:flex;
+            justify-content:center;
+            color:#F1F1F3;
             font-family: 'Open Sans', sans-serif;
         }
         h1:last-child{

@@ -40,14 +40,15 @@ const Map = () => {
   };
   return (
     <MapContainer>
-      <ComposableMap projectionConfig={{ scale: 140 }}>
+      <ComposableMap stroke="#122948"
+         projectionConfig={{ scale: 140 }}>
       <ZoomableGroup
           zoom={position.zoom}
           center={position.coordinates}
           onMoveEnd={handleMoveEnd}
         >
-        <Graticule />
-        <Sphere />
+        <Graticule stroke="#F1F1F3"/>
+        <Sphere stroke="#F1F1F3"/>
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => {
@@ -58,8 +59,8 @@ const Map = () => {
                   onClick={toggleMap}
                     fill={
                       geo.properties.ISO_A2 === abbrev
-                        ? "red"
-                        : "#000"
+                        ? "#CEA434"
+                        : "#F1F1F3"
                     }
                 />
               );

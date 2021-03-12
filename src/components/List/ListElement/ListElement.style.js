@@ -6,7 +6,7 @@ export const ListElContainer = styled.div`
   align-items: center;
   margin: 12.5px 0;
   padding: 5px 0px 5px 10px;
-  background-color: ${(props) => (props.selected ? "red" : "#fff")};
+  background-color: ${(props) => (props.selected ? "#CEA434" : "#F1F1F3")};
   .desc {
     h3 {
       width: 180px;
@@ -19,7 +19,7 @@ export const ListElContainer = styled.div`
     }
     h3,
     p {
-      color: ${(props) => (props.selected ? "#fff" : "#000")};
+      color: ${(props) => (props.selected ? "#F1F1F3" : "#000")};
     }
     p{
       width:190px;
@@ -34,7 +34,7 @@ export const ListElContainer = styled.div`
     margin: -5px 0;
     padding: 15px 10px;
     height: 50px;
-    background-color: #666;
+    background-color: #CEA434;
     i {
       color: #fff;
     }
