@@ -4,6 +4,7 @@ export const MapContainer = styled.div`
     width:calc(100% - 300px);
     height:calc(100vh - 100px);
     position: relative;
+    background-color:#0E1F33;
     svg{
         width:100%;
         height:100%;
@@ -13,14 +14,18 @@ export const MapContainer = styled.div`
     }
     .buttons{
         position: absolute;
-        top: 8%;
+        bottom: 4%;
         left:50%;
         transform:translate(-50%,-50%);
         button{
-            border: 1px solid #000;
+            background-color:#CEA434;
+            border: 1px solid #CEA434;
             border-radius:50%;
-            padding:5px 6px;
+            padding:10px 11px;
             outline:none;
+            i{
+                color:#F1F1F3;
+            }
         }
         button:first-child{
             margin-right:15px;

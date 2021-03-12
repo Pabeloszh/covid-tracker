@@ -15,7 +15,7 @@ export const FilteredLi = styled.div`
   {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-    background-color: #F5F5F5;
+    background-color: #F1F1F3;
   }
 
   ::-webkit-scrollbar
@@ -26,7 +26,6 @@ export const FilteredLi = styled.div`
   ::-webkit-scrollbar-thumb
   {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: #CEA434;
   }
 `;
