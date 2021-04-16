@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { AbbrevContext } from "../../../context/AbbrevContext";
+import { AbbrevContext } from "../../../../context/AbbrevContext";
 import { ListElContainer } from "./ListElement.style";
 
 const ListElement = ({ cData }) => {
@@ -41,7 +41,7 @@ const ListElement = ({ cData }) => {
         </p>
       </div>
       <div className='icon'>
-        <i class='fas fa-chart-area'></i>
+        <i className='fas fa-chart-area'></i>
       </div>
     </ListElContainer>
   );
