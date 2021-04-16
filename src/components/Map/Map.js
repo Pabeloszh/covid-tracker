@@ -50,7 +50,7 @@ const Map = () => {
           <Sphere stroke='#F1F1F3' />
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
-              geographies.map((geo) => {
+              geographies.map((geo, index) => {
                 return (
                   <Geography
                     map-abbrev={geo.properties.ISO_A2}
@@ -59,6 +59,7 @@ const Map = () => {
                     fill={
                       geo.properties.ISO_A2 === abbrev ? "#CEA434" : "#F1F1F3"
                     }
+                    key={index}
                   />
                 );
               })
@@ -68,10 +69,10 @@ const Map = () => {
       </ComposableMap>
       <div className='buttons'>
         <button onClick={handleZoomOut}>
-          <i class='fas fa-search-minus'></i>
+          <i className='fas fa-search-minus'></i>
         </button>
         <button onClick={handleZoomIn}>
-          <i class='fas fa-search-plus'></i>
+          <i className='fas fa-search-plus'></i>
         </button>
       </div>
     </MapContainer>

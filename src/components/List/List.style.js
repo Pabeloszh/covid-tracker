@@ -8,16 +8,18 @@ export const ListContainer = styled.div`
     border-right:3px solid #CEA434;
     .search{
         width:100%;
+        height:35px;
         positon relative;
         i{
-            margin:4px 0 0 5px;
+            margin:8px 0 0 5px;
             position:absolute;
             color:#000;
         }
         input{
+            height:100%;
             border-radius: 5px;
             background-color:#f5f3f4;
-            color:#a4161a;
+            color:#000;
             border:none;
             width:250px;
             padding: 5px 8px 5px 25px;

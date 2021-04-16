@@ -84,7 +84,7 @@ const Chart = () => {
     <ChartContainer>
       <h2>Monthly Cases</h2>
       <div
-        class='chart-container'
+        className='chart-container'
         style={{ position: "relative", height: "100%", width: "100%" }}
       >
         <Line

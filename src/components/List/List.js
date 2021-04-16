@@ -2,18 +2,17 @@ import React, { useEffect, useContext } from "react";
 import { ListContainer } from "./List.style";
 import FilteredList from "./FilteredList/FilteredList";
 import { AbbrevContext } from "../../context/AbbrevContext";
-import {SearchContext } from "../../context/SearchContext"
+import { SearchContext } from "../../context/SearchContext";
 
 const List = () => {
   const [abbrev, setAbbrev] = useContext(AbbrevContext);
   const [searchInput, searchInputValue] = useContext(SearchContext);
 
-
-  useEffect(()=>{
-    if(searchInput !== ""){
+  useEffect(() => {
+    if (searchInput !== "") {
       setAbbrev("");
     }
-  },[searchInput])
+  }, [searchInput]);
 
   const adjustCase = (str) => {
     return str.replace(/\w\S*/g, function (txt) {
@@ -24,14 +23,14 @@ const List = () => {
   return (
     <ListContainer>
       <div className='search'>
-        <i class='fas fa-search'></i>
+        <i className='fas fa-search'></i>
         <input
           onChange={(e) => searchInputValue(adjustCase(e.target.value))}
           type='text'
           placeholder='Search...'
         />
       </div>
-        <FilteredList/>
+      <FilteredList />
     </ListContainer>
   );
 };

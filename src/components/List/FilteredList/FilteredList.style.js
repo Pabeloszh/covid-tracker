@@ -2,10 +2,17 @@ import styled from "styled-components";
 
 export const FilteredLi = styled.div`
   margin-top: 15px;
-  // padding-right: 15px;
   height: calc(100% - 45px);
   overflow-y: scroll;
   scroll-behavior: smooth;
+
+  h3 {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   div:first-child {
     margin-top: 0;
